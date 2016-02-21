@@ -2,22 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_camara" android:icon="@android:drawable/ic_menu_camera"
-            android:title="Import" />
-        <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+        <item android:id="@+id/nav_stats"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:title="Статистика" />
+        <item android:id="@+id/nav_goods" android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Инвентарь" />
+        <item android:id="@+id/nav_bag" android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="Рюкзак" />
+        <item android:id="@+id/nav_state" android:icon="@android:drawable/ic_menu_manage"
+            android:title="Состояние" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Общение">
         <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
-                android:title="Send" />
+            <item android:id="@+id/nav_chatlist" android:icon="@android:drawable/ic_menu_share"
+                android:title="Чатлист" />
+            <item android:id="@+id/nav_chat" android:icon="@android:drawable/ic_menu_send"
+                android:title="Чат" />
         </menu>
     </item>
 

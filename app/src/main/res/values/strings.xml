@@ -1,10 +1,21 @@
 <resources>
-    <string name="app_name">NavigationDrawerVideoTutorial</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Настройки</string>
+    <string name="app_name">OldBk.ORG</string>
+    <string name="hint_login">Логин</string>>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_confPassword">Подтверждение пароля</string>
+    <string name="hint_name">Имя</string>
+    <string name="btn_login">Войти в игру</string>
+    <string name="btn_register">Зарегистрироваться</string>
+    <string name="btn_link_to_register">Еще не с нами? Регистрируйся!</string>
+    <string name="btn_link_to_login">Такой ник уже существует!</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">Выход</string>
+    <string name="name">Fullname</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
