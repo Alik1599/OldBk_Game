@@ -23,5 +23,8 @@ public class AppConfig {
 
     //
     public static String[] align = {"нет","Светлая","Нейтральная","Темная"};
+
+    //
+    public static String response;
 }
 

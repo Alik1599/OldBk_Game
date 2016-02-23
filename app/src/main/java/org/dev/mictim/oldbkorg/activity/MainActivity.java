@@ -10,12 +10,24 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 
 import org.dev.mictim.oldbkorg.R;
+import org.dev.mictim.oldbkorg.app.AppConfig;
+import org.dev.mictim.oldbkorg.app.AppController;
 import org.dev.mictim.oldbkorg.helper.SessionManager;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     private SessionManager session;
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,9 +130,45 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
             // Handle the camera action
-        } else if (id == R.id.nav_goods) {
+        } else if (id == R.id.nav_inventory) {
             //Set the fragment initially
-            GalleryFragment fragment = new GalleryFragment();
+            Response.Listener listener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d(TAG, "Inventory Response: " + response.toString());
+                Toast.makeText(getApplicationContext(),
+                        response, Toast.LENGTH_LONG).show();
+//                AppConfig.response = response;
+
+                }
+            };
+            Response.ErrorListener errorListener = new Response.ErrorListener(){
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.e(TAG, "Inventory Error: " + error.getMessage());
+                    Toast.makeText(getApplicationContext(),
+                            error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            };
+
+            StringRequest strReq = new StringRequest(Request.Method.POST,
+                    AppConfig.URL_LOGIN, listener, errorListener){
+
+                @Override
+                protected Map<String, String> getParams() {
+                    // Posting parameters to login url
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("act","myinv");
+                    params.put("sid", AppConfig.sid);
+
+                    return params;
+                }
+
+            };
+
+            // Adding request to request queue
+            AppController.getInstance().addToRequestQueue(strReq);
+            InventoryFragment fragment = new InventoryFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -138,5 +187,48 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public String post (){
+
+        String getResponse = null;
+        Response.Listener listener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Inventory Response: " + response.toString());
+                Toast.makeText(getApplicationContext(),
+                        response, Toast.LENGTH_LONG).show();
+//                getResponse = response;
+
+            }
+        };
+        Response.ErrorListener errorListener = new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Inventory Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        };
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_LOGIN, listener, errorListener){
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("act","myinv");
+                params.put("sid", AppConfig.sid);
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq);
+
+        return getResponse;
     }
 }

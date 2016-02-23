@@ -1,0 +1,238 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.InventoryFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="vertical"/>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:id="@+id/imgClips"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:background="#e2e0e0"
+        android:src="@drawable/clips" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:id="@+id/imgAmulet"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/imgClips"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:background="#e2e0e0"
+        android:src="@drawable/amulet" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgWeapon"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgAmulet"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:src="@drawable/weapon" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:id="@+id/imgArmor1"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgWeapon"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:src="@drawable/armor" />
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imgRing1"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgArmor1"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:src="@drawable/ring" />
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imgRing3"
+        android:clickable="true"
+        android:layout_marginLeft="10dp"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgRing1"
+        android:layout_alignEnd="@+id/imgArmor1"
+        android:src="@drawable/ring" />
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imgRing2"
+        android:clickable="true"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgRing1"
+        android:layout_toEndOf="@+id/imgRing1"
+        android:src="@drawable/ring" />
+
+    <ImageButton
+        android:layout_width="76dp"
+        android:layout_height="209dp"
+        android:id="@+id/imgAvatar"
+        android:clickable="true"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgClips"
+        android:layout_toEndOf="@+id/imgClips"
+        android:src="@drawable/avatar" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgHelmet"
+        android:clickable="true"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgAvatar"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:src="@drawable/helmet" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:id="@+id/imgPerchi"
+        android:clickable="true"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgHelmet"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:src="@drawable/perchi" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgShield"
+        android:clickable="true"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgWeapon"
+        android:layout_alignStart="@+id/imgPerchi"
+        android:src="@drawable/shield" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:id="@+id/imgBoots"
+        android:clickable="true"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgShield"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:src="@drawable/boots" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Login"
+        android:id="@+id/tvLogin"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_alignStart="@+id/imgClips"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="[level]"
+        android:id="@+id/tvLevel"
+        android:layout_alignTop="@+id/tvLogin"
+        android:layout_toEndOf="@+id/imgRing2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Сила:"
+        android:id="@+id/tvStreight"
+        android:layout_alignTop="@+id/imgHelmet"
+        android:layout_toEndOf="@+id/imgHelmet"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Ловкость:"
+        android:id="@+id/tvLovka"
+        android:layout_below="@+id/tvStreight"
+        android:layout_alignStart="@+id/tvStreight" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Интуиция:"
+        android:id="@+id/tvInta"
+        android:layout_below="@+id/tvLovka"
+        android:layout_alignStart="@+id/tvLovka" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Выносливость:"
+        android:id="@+id/tvHealth"
+        android:layout_below="@+id/tvInta"
+        android:layout_alignStart="@+id/tvInta" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/streight"
+        android:layout_above="@+id/tvLovka"
+        android:layout_toEndOf="@+id/tvStreight"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/lovka"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/streight"
+        android:layout_toEndOf="@+id/tvLovka" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/inta"
+        android:layout_marginLeft="5dp"
+        android:layout_above="@+id/tvHealth"
+        android:layout_toEndOf="@id/tvInta" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/health"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/inta"
+        android:layout_toEndOf="@+id/tvHealth" />
+
+</RelativeLayout>

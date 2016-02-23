@@ -23,10 +23,11 @@ dependencies {
     ext {
         supportLibVersion = '23.1.1'
     }
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
     compile "com.android.support:design:${supportLibVersion}"
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile files('src/main/libs/urlimageviewhelper-1.0.4.jar')
 }

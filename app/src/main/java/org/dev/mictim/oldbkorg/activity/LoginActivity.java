@@ -15,8 +15,8 @@ import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import org.dev.mictim.oldbkorg.R;
 
+import org.dev.mictim.oldbkorg.R;
 import org.dev.mictim.oldbkorg.app.AppConfig;
 import org.dev.mictim.oldbkorg.app.AppController;
 import org.dev.mictim.oldbkorg.helper.JSONParser;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends Activity {
-    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private static final String TAG = LoginActivity.class.getSimpleName();
     private Button btnLogin;
     private Button btnLinkToRegister;
     private EditText inputEmail;
