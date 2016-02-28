@@ -19,10 +19,14 @@ import com.android.volley.toolbox.StringRequest;
 import org.dev.mictim.oldbkorg.R;
 import org.dev.mictim.oldbkorg.app.AppConfig;
 import org.dev.mictim.oldbkorg.app.AppController;
+import org.dev.mictim.oldbkorg.helper.FileOperations;
 import org.dev.mictim.oldbkorg.helper.JSONParser;
+import org.dev.mictim.oldbkorg.helper.PostClass;
 import org.dev.mictim.oldbkorg.helper.SessionManager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends Activity {
@@ -34,7 +38,9 @@ public class LoginActivity extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
 //    private SQLiteHandler db;
+//{
 
+//}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,7 @@ public class LoginActivity extends Activity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
 
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
@@ -77,7 +84,6 @@ public class LoginActivity extends Activity {
                 // Check for empty data in the form
                 if (!login.isEmpty() && !password.isEmpty()) {
                     // login user
-
                     checkLogin(login, password);
 
                 } else {
@@ -109,7 +115,7 @@ public class LoginActivity extends Activity {
     private void checkLogin(final String email, final String password){
         // Tag used to cancel the request
         String tag_string_req = "req_login";
-
+        final FileOperations fo = new FileOperations(getApplicationContext(), "sid");
         pDialog.setMessage("Logging in ...");
         showDialog();
 
@@ -125,10 +131,23 @@ public class LoginActivity extends Activity {
                 if (map.containsKey("sid")) {
                     // Start main activity
                     session.setLogin(true);
+                    fo.writeToFile(map.get("sid"));
                     AppConfig.sid = map.get("sid");
                     Intent intent = new Intent(LoginActivity.this,
                             MainActivity.class);
                     startActivity(intent);
+                    List<String[]> myInvParams = new ArrayList<>();
+                    List<String[]> myInfoParams = new ArrayList<>();
+                    AppConfig.myInvSid[1] = AppConfig.sid;
+                    AppConfig.myInfoSid[1] = AppConfig.sid;
+                    myInvParams.add(AppConfig.myInvAct);
+                    myInvParams.add(AppConfig.myInvSid);
+                    myInfoParams.add(AppConfig.myInfoAct);
+                    myInfoParams.add(AppConfig.myInfoSid);
+                    PostClass postInv = new PostClass(getApplicationContext(), "myinv", myInvParams);
+                    PostClass postInfo = new PostClass(getApplicationContext(), "myinfo", myInfoParams);
+                    postInv.post(null);
+                    postInfo.post(null);
                     finish();
 //                    Toast.makeText(getApplicationContext(),
 //                            response, Toast.LENGTH_LONG).show();
@@ -149,7 +168,7 @@ public class LoginActivity extends Activity {
                 Log.e(TAG, "Login Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(),
                         error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
+
             }
         };
 

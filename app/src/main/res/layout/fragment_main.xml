@@ -3,17 +3,272 @@
     android:layout_height="match_parent"
     tools:context="org.dev.mictim.oldbkorg.activity.MainFragment">
 
-    <Button
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAIN"
-        android:padding="8dp"
-        android:textColor="#fff"
-        android:background="@color/colorPrimary"
-        android:textSize="28sp"
-        android:id="@+id/main_button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:gravity="left"
+        android:orientation="vertical" />
+
+    <ImageButton
+        android:id="@+id/imgClips"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="80dp"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/clips" />
+
+    <ImageButton
+        android:id="@+id/imgAmulet"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/imgClips"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/amulet" />
+
+    <ImageButton
+        android:id="@+id/imgWeapon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/imgAmulet"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/weapon" />
+
+    <ImageButton
+        android:id="@+id/imgArmor1"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/imgWeapon"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/armor" />
+
+    <ImageButton
+        android:id="@+id/imgRing1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/imgArmor1"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/linearLayout1"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/ring" />
+
+    <ImageButton
+        android:id="@+id/imgRing3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignEnd="@+id/imgArmor1"
+        android:layout_alignTop="@+id/imgRing1"
+        android:layout_marginLeft="10dp"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/ring" />
+
+    <ImageButton
+        android:id="@+id/imgRing2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/imgRing1"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/imgRing1"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/ring" />
+
+    <ImageButton
+        android:id="@+id/imgAvatar"
+        android:layout_width="76dp"
+        android:layout_height="200dp"
+        android:layout_alignTop="@+id/imgClips"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/imgClips"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/avatar" />
+
+    <ImageButton
+        android:id="@+id/imgHelmet"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/imgAvatar"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/helmet" />
+
+    <ImageButton
+        android:id="@+id/imgPerchi"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imgHelmet"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/perchi" />
+
+    <ImageButton
+        android:id="@+id/imgShield"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/imgPerchi"
+        android:layout_below="@+id/imgWeapon"
+        android:layout_marginLeft="0dp"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/shield" />
+
+    <ImageButton
+        android:id="@+id/imgBoots"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imgShield"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:background="#e2e0e0"
+        android:clickable="true"
+        android:src="@drawable/boots" />
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgClips"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="60dp"
+        android:text="Login"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvLogin"
+        android:layout_toEndOf="@+id/tvLogin"
+        android:text="[0]"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:id="@+id/tvStreight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgHelmet"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/imgHelmet"
+        android:text="Сила:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLovka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvStreight"
+        android:layout_below="@+id/tvStreight"
+        android:text="Ловкость:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvInta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvLovka"
+        android:layout_below="@+id/tvLovka"
+        android:text="Интуиция:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvInta"
+        android:layout_below="@+id/tvInta"
+        android:text="Выносливость:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvIntellect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvHealth"
+        android:layout_below="@+id/tvHealth"
+        android:text="Интеллект:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvMudra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvIntellect"
+        android:layout_below="@+id/tvIntellect"
+        android:text="Мудрость:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvWins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvMudra"
+        android:layout_below="@+id/imgPerchi"
+        android:layout_marginTop="20dp"
+        android:text="Победы:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvLose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvWins"
+        android:layout_below="@+id/tvWins"
+        android:text="Поражения:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/imgClan"
+        android:layout_width="24dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/tvLogin"
+        android:layout_toEndOf="@+id/imgRing1" />
+
+    <ImageView
+        android:id="@+id/imgAlign"
+        android:layout_width="12dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/imgClan"
+        android:layout_toStartOf="@+id/imgClan" />
+
+    <ImageView
+        android:id="@+id/imgRunes"
+        android:layout_width="196dp"
+        android:layout_height="48dp"
+        android:layout_alignStart="@+id/imgRing1"
+        android:layout_below="@+id/imgRing1"
+        android:background="#e2e0e0"
+        android:src="@drawable/runes_slots" />
+
+    <TextView
+        android:id="@+id/tvMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvLose"
+        android:layout_alignTop="@+id/imgBoots"
+        android:text="Деньги:"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
 </RelativeLayout>

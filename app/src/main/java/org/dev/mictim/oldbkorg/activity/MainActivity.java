@@ -1,5 +1,6 @@
 package org.dev.mictim.oldbkorg.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,33 +15,35 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 
 import org.dev.mictim.oldbkorg.R;
 import org.dev.mictim.oldbkorg.app.AppConfig;
-import org.dev.mictim.oldbkorg.app.AppController;
+import org.dev.mictim.oldbkorg.helper.FileOperations;
 import org.dev.mictim.oldbkorg.helper.SessionManager;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     private SessionManager session;
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private ProgressDialog pDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+
+        FileOperations fo = new FileOperations(getApplicationContext(), "sid");
+        AppConfig.sid = fo.readFromFile();
+        AppConfig.myInfoSid[1] = AppConfig.sid;
+        AppConfig.myInvSid[1] = AppConfig.sid;
+        Log.d("sid:", AppConfig.sid);
 
         //Set the fragment initially
         MainFragment fragment = new MainFragment();
@@ -108,6 +111,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_logout){
             session = new SessionManager(getApplicationContext());
             session.setLogin(false);
+//            FileOperations fo = new FileOperations(getApplicationContext());
+//            fo.deleteFile("sid");
+//            fo.deleteFile("login");
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
@@ -120,9 +126,15 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        String response = null;
         int id = item.getItemId();
 
         if (id == R.id.nav_stats) {
+            //Get response
+//            PostClass post = new PostClass(getApplicationContext(), "myinfo");
+//            String myInfoResponse = post.getResponse();
+//            Toast.makeText(getApplicationContext(),
+//                    myInfoResponse, Toast.LENGTH_LONG).show();
             //Set the fragment initially
             MainFragment fragment = new MainFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -131,43 +143,12 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
             // Handle the camera action
         } else if (id == R.id.nav_inventory) {
-            //Set the fragment initially
-            Response.Listener listener = new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    Log.d(TAG, "Inventory Response: " + response.toString());
-                Toast.makeText(getApplicationContext(),
-                        response, Toast.LENGTH_LONG).show();
-//                AppConfig.response = response;
+            //Get response
+//            PostClass post = new PostClass(getApplicationContext(), "myinv");
+//            String myInvResponse = post.getResponse();
+//            Toast.makeText(getApplicationContext(),
+//                    myInvResponse, Toast.LENGTH_LONG).show();
 
-                }
-            };
-            Response.ErrorListener errorListener = new Response.ErrorListener(){
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.e(TAG, "Inventory Error: " + error.getMessage());
-                    Toast.makeText(getApplicationContext(),
-                            error.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            };
-
-            StringRequest strReq = new StringRequest(Request.Method.POST,
-                    AppConfig.URL_LOGIN, listener, errorListener){
-
-                @Override
-                protected Map<String, String> getParams() {
-                    // Posting parameters to login url
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("act","myinv");
-                    params.put("sid", AppConfig.sid);
-
-                    return params;
-                }
-
-            };
-
-            // Adding request to request queue
-            AppController.getInstance().addToRequestQueue(strReq);
             InventoryFragment fragment = new InventoryFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -189,46 +170,64 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public String post (){
+//    public void post (final List<String[]> args, final String location){
+//        showDialog();
+//
+//        Response.Listener listener = new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//                Log.d(TAG, location + " response: " + response.toString());
+////                Toast.makeText(getApplicationContext(),
+////                        response, Toast.LENGTH_LONG).show();
+//                AppConfig.response = response.toString();
+//
+//
+//            }
+//        };
+//        Response.ErrorListener errorListener = new Response.ErrorListener(){
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, location + " Error: " + error.getMessage());
+//                Toast.makeText(getApplicationContext(),
+//                        error.getMessage(), Toast.LENGTH_LONG).show();
+//                hideDialog();
+//            }
+//        };
+//
+//        StringRequest strReq = new StringRequest(Request.Method.POST,
+//                AppConfig.URL_LOGIN, listener, errorListener){
+//            @Override
+//            public Priority getPriority() {
+//                return Priority.IMMEDIATE;
+//            }
+//
+//            @Override
+//            protected Map<String, String> getParams() {
+//                // Posting parameters to login url
+//                Map<String, String> params = new HashMap<String, String>();
+//                for (int i = 0; i < args.size(); i++){
+//                    params.put(args.get(i)[0],args.get(i)[1]);
+//                }
+//
+//                return params;
+//            }
+//
+//
+//        };
+//
+//        // Adding request to request queue
+//        AppController.getInstance().addToRequestQueue(strReq, null);
+//
+//    }
 
-        String getResponse = null;
-        Response.Listener listener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Inventory Response: " + response.toString());
-                Toast.makeText(getApplicationContext(),
-                        response, Toast.LENGTH_LONG).show();
-//                getResponse = response;
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
 
-            }
-        };
-        Response.ErrorListener errorListener = new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Inventory Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        };
-
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_LOGIN, listener, errorListener){
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("act","myinv");
-                params.put("sid", AppConfig.sid);
-
-                return params;
-            }
-
-        };
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq);
-
-        return getResponse;
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

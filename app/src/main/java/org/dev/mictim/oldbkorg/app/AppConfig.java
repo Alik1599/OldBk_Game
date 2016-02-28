@@ -26,5 +26,19 @@ public class AppConfig {
 
     //
     public static String response;
+
+    //Config params from request
+    //login request
+    public static String[] actAuth = {"act", "auth"};
+    public static String[] authLogin = {"login", null};
+    public static String[] authPass = {"pass", null};
+
+    //myInfo request
+    public static String[] myInfoAct = {"act", "myinfo"};
+    public static String[] myInfoSid = {"sid", null};
+
+    //my Inv request
+    public static String[] myInvAct = {"act", "myinv"};
+    public static String[] myInvSid = {"sid", null};
 }
 
