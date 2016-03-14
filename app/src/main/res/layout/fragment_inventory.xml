@@ -1,147 +1,153 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.InventoryFragment">
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:orientation="vertical"/>
+    tools:context="org.dev.mictim.oldbkorg.activity.MainFragment"
+    android:background="#e2e0e0">
 
     <ImageButton
         android:id="@+id/imgClips"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout1"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="135dp"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/clips" />
+        android:src="@drawable/clips"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgAmulet"
-        android:layout_width="60dp"
-        android:layout_height="20dp"
+        android:layout_width="45dp"
+        android:layout_height="15dp"
         android:layout_below="@+id/imgClips"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/linearLayout1"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/amulet" />
+        android:src="@drawable/amulet"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgWeapon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/imgAmulet"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/linearLayout1"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/weapon" />
+        android:src="@drawable/weapon"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgArmor1"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/imgWeapon"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/linearLayout1"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/armor" />
+        android:src="@drawable/armor"
+        android:scaleType="fitCenter" />
 
     <ImageButton
         android:id="@+id/imgRing1"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_below="@+id/imgArmor1"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/linearLayout1"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/ring" />
+        android:src="@drawable/ring"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgRing3"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignEnd="@+id/imgArmor1"
         android:layout_alignTop="@+id/imgRing1"
         android:layout_marginLeft="10dp"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/ring" />
+        android:src="@drawable/ring"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgRing2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignTop="@+id/imgRing1"
         android:layout_marginLeft="0dp"
         android:layout_toEndOf="@+id/imgRing1"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/ring" />
+        android:src="@drawable/ring"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgAvatar"
-        android:layout_width="76dp"
-        android:layout_height="200dp"
+        android:layout_width="57dp"
+        android:layout_height="150dp"
         android:layout_alignTop="@+id/imgClips"
         android:layout_marginLeft="0dp"
         android:layout_toEndOf="@+id/imgClips"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/avatar" />
+        android:src="@drawable/avatar"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgHelmet"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_alignTop="@+id/imgAvatar"
         android:layout_marginLeft="0dp"
         android:layout_toEndOf="@+id/imgAvatar"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/helmet" />
+        android:src="@drawable/helmet"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgPerchi"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/imgHelmet"
         android:layout_marginLeft="0dp"
         android:layout_toEndOf="@+id/imgAvatar"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/perchi" />
+        android:src="@drawable/perchi"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgShield"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_alignStart="@+id/imgPerchi"
         android:layout_below="@+id/imgWeapon"
         android:layout_marginLeft="0dp"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/shield" />
+        android:src="@drawable/shield"
+        android:scaleType="fitCenter"/>
 
     <ImageButton
         android:id="@+id/imgBoots"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/imgShield"
         android:layout_marginLeft="0dp"
         android:layout_toEndOf="@+id/imgAvatar"
         android:background="#e2e0e0"
         android:clickable="true"
-        android:src="@drawable/boots" />
+        android:src="@drawable/boots"
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:id="@+id/tvLogin"
@@ -223,6 +229,7 @@
         android:id="@+id/imgClan"
         android:layout_width="24dp"
         android:layout_height="15dp"
+        android:background="#e2e0e0"
         android:layout_alignTop="@+id/tvLogin"
         android:layout_toEndOf="@+id/imgRing1" />
 
@@ -230,16 +237,147 @@
         android:id="@+id/imgAlign"
         android:layout_width="12dp"
         android:layout_height="15dp"
+        android:background="#e2e0e0"
         android:layout_alignTop="@+id/imgClan"
         android:layout_toStartOf="@+id/imgClan" />
 
     <ImageView
         android:id="@+id/imgRunes"
-        android:layout_width="196dp"
-        android:layout_height="48dp"
+        android:layout_width="147dp"
+        android:layout_height="36dp"
         android:layout_alignStart="@+id/imgRing1"
         android:layout_below="@+id/imgRing1"
         android:background="#e2e0e0"
-        android:src="@drawable/runes_slots" />
+        android:src="@drawable/runes_slots"
+        android:scaleType="fitCenter"/>
+
+    <ImageButton
+        android:id="@+id/imgBron"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:background="#e2e0e0"
+        android:layout_toStartOf="@+id/imgAvatar"
+        android:scaleType="fitCenter"
+        android:layout_above="@+id/imgRing1"
+        />
+
+    <ImageButton
+        android:id="@+id/imgPlaw"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:clickable="true"
+        android:visibility="invisible"
+        android:layout_above="@+id/imgRing1"
+        android:background="#e2e0e0"
+        android:layout_toStartOf="@+id/imgAvatar"
+        android:scaleType="fitCenter" />
+
+    <ImageButton
+        android:id="@+id/imgVenok"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="0dp"
+        android:clickable="true"
+        android:layout_above="@+id/imgPerchi"
+        android:background="#e2e0e0"
+        android:layout_toStartOf="@+id/tvStreight"
+        android:visibility="invisible"
+        android:scaleType="fitCenter"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag01"
+        android:layout_below="@+id/tvLogin"
+        android:layout_alignStart="@+id/imgClips"
+        android:background="#e2e0e0"
+        android:src="@drawable/mag1"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag02"
+        android:layout_alignTop="@+id/imgMag01"
+        android:layout_toEndOf="@+id/imgMag01"
+        android:background="#e2e0e0"
+        android:src="@drawable/mag1"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag03"
+        android:src="@drawable/mag1"
+        android:layout_below="@+id/tvLevel"
+        android:background="#e2e0e0"
+        android:layout_toEndOf="@+id/imgMag02" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag04"
+        android:src="@drawable/mag1"
+        android:layout_above="@+id/imgMag06"
+        android:background="#e2e0e0"
+        android:layout_toEndOf="@+id/imgMag03" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag05"
+        android:src="@drawable/mag1"
+        android:layout_above="@+id/imgMag06"
+        android:background="#e2e0e0"
+        android:layout_toEndOf="@+id/imgMag04" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag06"
+        android:src="@drawable/mag1"
+        android:background="#e2e0e0"
+        android:layout_below="@+id/imgMag03"
+        android:layout_alignStart="@+id/imgMag01"
+        android:layout_marginTop="3dp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag07"
+        android:src="@drawable/mag1"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgMag06"
+        android:layout_toEndOf="@+id/imgMag06" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag08"
+        android:src="@drawable/mag1"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgMag07"
+        android:layout_alignStart="@+id/imgMag03" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag09"
+        android:src="@drawable/mag1"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgMag08"
+        android:layout_alignStart="@+id/imgMag04" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:id="@+id/imgMag10"
+        android:src="@drawable/mag1"
+        android:background="#e2e0e0"
+        android:layout_alignTop="@+id/imgMag09"
+        android:layout_toEndOf="@+id/imgMag09" />
+
 
 </RelativeLayout>

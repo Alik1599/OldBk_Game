@@ -14,6 +14,7 @@ public class JSONParser {
 
 
     public static Map<String, String> getValue(String strJson) {
+
         Map<String, String> map = new HashMap<String, String>();
         try {
             JSONObject jsonObj = new JSONObject(strJson);

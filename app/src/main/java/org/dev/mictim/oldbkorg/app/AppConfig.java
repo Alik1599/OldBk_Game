@@ -10,6 +10,15 @@ public class AppConfig {
     // Server user register url
     public static String URL_REGISTER = "http://oldbk.org/register.php";
 
+    //MyInfo
+    public static final String URL_MYINFO = URL_LOGIN + "?act=myinfo&sid=";
+
+    //MyInv
+    public static final String URL_MYINV = URL_LOGIN + "?act=myinv&sid=";
+
+    //MyInfo Response;
+    public static String myInfoResponse = null;
+
     //Post Parameters to search
     public static String[] JSON_LOGIN_SUCCESS = {"sid"};
     public static String[] JSON_LOGIN_FAIL ={"error"};

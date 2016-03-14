@@ -30,6 +30,7 @@ public class FileOperations extends Activity {
 
     public void writeToFile(String data) {
         try {
+            Log.d("filename: " + filename + " ", data);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(filename, Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
@@ -60,6 +61,7 @@ public class FileOperations extends Activity {
             }
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());
+            Helper.waitingMethod(filename, 5);
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
@@ -67,12 +69,4 @@ public class FileOperations extends Activity {
         return ret;
     }
 
-    public boolean deleteFile(String filename1) {
-        String dir = getFilesDir().getAbsolutePath();
-        File f0 = new File(dir, filename1);
-        boolean d0 = f0.delete();
-        Log.w("Delete Check", "File deleted: " + dir + "/" + filename1 + d0);
-
-        return d0;
-    }
 }

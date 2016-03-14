@@ -20,6 +20,7 @@ import org.dev.mictim.oldbkorg.R;
 import org.dev.mictim.oldbkorg.app.AppConfig;
 import org.dev.mictim.oldbkorg.app.AppController;
 import org.dev.mictim.oldbkorg.helper.FileOperations;
+import org.dev.mictim.oldbkorg.helper.Helper;
 import org.dev.mictim.oldbkorg.helper.JSONParser;
 import org.dev.mictim.oldbkorg.helper.PostClass;
 import org.dev.mictim.oldbkorg.helper.SessionManager;
@@ -125,7 +126,7 @@ public class LoginActivity extends Activity {
                 Log.d(TAG, "Login Response: " + response.toString());
 //                Toast.makeText(getApplicationContext(),
 //                        response, Toast.LENGTH_LONG).show();
-                hideDialog();
+
                 Map<String, String> map = JSONParser.getValue(response);
 
                 if (map.containsKey("sid")) {
@@ -133,21 +134,15 @@ public class LoginActivity extends Activity {
                     session.setLogin(true);
                     fo.writeToFile(map.get("sid"));
                     AppConfig.sid = map.get("sid");
+                    PostClass postInfo = new PostClass(getApplicationContext(), "myinfo");
+                    postInfo.execute(AppConfig.URL_MYINFO + AppConfig.sid);
+                    PostClass postInv = new PostClass(getApplicationContext(), "myinv");
+                    postInv.execute(AppConfig.URL_MYINV + AppConfig.sid);
+                    Helper.waitingMethod(null, 3);
+                    hideDialog();
                     Intent intent = new Intent(LoginActivity.this,
                             MainActivity.class);
                     startActivity(intent);
-                    List<String[]> myInvParams = new ArrayList<>();
-                    List<String[]> myInfoParams = new ArrayList<>();
-                    AppConfig.myInvSid[1] = AppConfig.sid;
-                    AppConfig.myInfoSid[1] = AppConfig.sid;
-                    myInvParams.add(AppConfig.myInvAct);
-                    myInvParams.add(AppConfig.myInvSid);
-                    myInfoParams.add(AppConfig.myInfoAct);
-                    myInfoParams.add(AppConfig.myInfoSid);
-                    PostClass postInv = new PostClass(getApplicationContext(), "myinv", myInvParams);
-                    PostClass postInfo = new PostClass(getApplicationContext(), "myinfo", myInfoParams);
-                    postInv.post(null);
-                    postInfo.post(null);
                     finish();
 //                    Toast.makeText(getApplicationContext(),
 //                            response, Toast.LENGTH_LONG).show();
